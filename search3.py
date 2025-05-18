@@ -11,7 +11,6 @@ def bubble(arr):
                 arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
 
-
 #сортировка выбором
 
 def selected(arr):
@@ -24,29 +23,38 @@ def selected(arr):
         arr[i], arr[min_index] = arr[min_index], arr[i]
     return arr
 
-
 arr_10 = []
 for i in range(10):
     arr_10.append(randint(1, 100))
 
 arr_100 = []
-for i in range(10):
-    arr_100.append(randint(1, 100))
+for i in range(100):
+    arr_100.append(randint(1, 1000))
 
 arr_1000 = []
 for i in range(1000):
     arr_1000.append(randint(1, 10000))
 
-arr = arr_1000
+arr = arr_10
 
 # arr = [361, 455, 963, 349, 99, 229, 916, 490, 748, 605, 977, 471, 289, 422, 274, 817, 291, 853, 151, 605, 741, 901, 638, 347, 349, 677, 87, 440, 313, 644, 926, 495, 898, 46, 440, 715, 14, 989, 944, 112, 991, 896, 286, 645, 210, 286, 718, 713, 699, 232, 496, 871, 734, 155, 991, 76, 112, 641, 185, 923, 63, 123, 240, 561, 29, 594, 161, 779, 899, 675, 932, 88, 390, 863, 827, 701, 36, 793, 938, 153, 934, 400, 6, 121, 705, 367, 360, 647, 253, 976, 452, 747, 384, 24, 942, 285, 300, 885, 267, 761]
 print(bubble(arr))
 print(selected(arr))
 
 
-print(timeit.timeit(stmt = "bubble(arr)", globals=globals(), number = 10))
-print(timeit.timeit(stmt = "selected(arr)", globals=globals(), number = 10))
+print(timeit.timeit(stmt = "bubble(arr)", globals=globals(), number = 1000))
+print(timeit.timeit(stmt = "selected(arr)", globals=globals(), number = 1000))
 
+# время для 10 элементов
+# пузырь - 0,0018
+# выбор - 0,0017
 
+# время для 100 элементов
+# пузырь - 0,12
+# выбор - 0,10
+
+# время для 1000 элементов
+# пузырь - 13,45
+# выбор - 10,26
 
 
